@@ -42,15 +42,14 @@
   <div class="fixed bg"></div>
   <img class="logo" src="assets/osi_final_red.svg" alt="OSI" />
   <script>
-    let clickCount = Number(localStorage.getItem('clickcount'));
-    if (!clickCount) clickCount = 0;
-    localStorage.setItem('clickcount', ++clickCount);
-    if(clickCount >= 3){
-      setTimeout(()=>{
+    let clickCount = 0;
+    document.querySelector(".logo").addEventListener('click', ()=>{
+      if(++clickCount >= 3){
+        clickCount = Number.NEGATIVE_INFINITY;
         document.querySelector(".bg").classList.add("show");
         document.querySelector(".logo").classList.add("hide");
-      },1000);
-    }
+      }
+    })
   </script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140502804-1"></script>
